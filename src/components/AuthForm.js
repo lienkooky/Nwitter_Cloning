@@ -1,12 +1,13 @@
-import { authService } from 'fbase';
 import React, { useState } from 'react';
+import { authService } from 'fbase';
+
+const inputStyles = {};
 
 const AuthForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [newAccount, setNewAccount] = useState(true);
   const [error, setError] = useState('');
-
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -53,21 +54,20 @@ const AuthForm = () => {
           placeholder="Password"
           required
           value={password}
-          onChange={onChange}
           className="authInput"
+          onChange={onChange}
         />
         <input
           type="submit"
           className="authInput authSubmit"
-          value={newAccount ? 'Create Account' : 'Sign in'}
+          value={newAccount ? 'Create Account' : 'Sign In'}
         />
         {error && <span className="authError">{error}</span>}
       </form>
       <span onClick={toggleAccount} className="authSwitch">
-        {newAccount ? 'Sign in' : 'Create Account'}
+        {newAccount ? 'Sign In' : 'Create Account'}
       </span>
     </>
   );
 };
-
 export default AuthForm;

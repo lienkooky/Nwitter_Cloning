@@ -19,10 +19,8 @@ const Auth = () => {
     } else if (name === 'github') {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
-    const data = await authService.signInWithPopup(provider);
-    console.log(data);
+    await authService.signInWithPopup(provider);
   };
-
   return (
     <div className="authContainer">
       <FontAwesomeIcon
@@ -43,5 +41,4 @@ const Auth = () => {
     </div>
   );
 };
-
 export default Auth;
